@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Pipeline de dados e ecossistema de BI da operação industrial — Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estatico/estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Pipeline de dados e ecossistema de BI da operação industrial</h1>
+<p class="papel">Supervisor de Gestão de Processos Industriais · 2024-2026</p>
+
+<h3>Problema</h3>
+<p>A definição de cada indicador já estava padronizada entre os analistas, mas a coleta continuava manual: cada um extraía do ERP, baixava as planilhas vivas de três unidades e conferia à mão antes de atualizar o relatório. Eram 4 h por semana, por analista, só para ter o dado na mesa — antes de qualquer análise.</p>
+
+<h3>Restrições</h3>
+<p>Pipeline projetado, construído e mantido por uma pessoa só, sem orçamento para ferramenta paga de orquestração nem ambiente de homologação separado: toda mudança era testada e publicada no mesmo ambiente que a operação já consumia. As três fontes eram heterogêneas e instáveis — API do ERP, planilha viva editada à mão em cada unidade e cadastro manual —, mudando de estrutura sem aviso prévio. A infraestrutura rodava sobre armazenamento de arquivo compartilhado da própria equipe, não um servidor dedicado, o que limitava a execução a duas janelas fixas por dia em vez de atualização contínua.</p>
+
+<h3>Método</h3>
+<p>ETL, Modelagem de dados, BI, Automação, Governança de dados</p>
+
+<h3>O que eu fiz</h3>
+<p>Arquitetei e desenvolvi sozinho um pipeline ETL em Python que integra API REST do ERP, planilhas vivas de 3 unidades e cadastros manuais em 35 datasets, roda 2x/dia por tarefa agendada e publica os CSVs no SharePoint da equipe. Construí também o painel web de operação e 35 scripts individuais, um por dataset, para reprocessar uma base isolada fora da janela automática.</p>
+
+<h3>Resultado</h3>
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>4 h/semana por analista em coleta e conferência manual, mais 30 min por atualização do relatório, com 15 analistas na rotina</td><td>1,5 h/semana por analista, mais 20 min de atualização completa; o pipeline roda às 08h e às 18h sem intervenção humana</td><td>-62,5% por analista (acumulado com a padronização: 8 h -&gt; 1,5 h, -81%)</td></tr>
+</table>
+<p>Medição: Estimativa do supervisor sobre a rotina da equipe [estimado], sem cronometragem. Declaração honesta do depois: o ciclo completo hoje é de 2,5 a 3 h/semana — 1,5 h é o trabalho do analista e o restante é a validação do supervisor, que permanece por decisão. O pipeline matou coleta e conferência, não a análise. Impacto anual: 37,5 h/semana no time, cerca de 1.950 h/ano, aproximadamente 1 FTE. Acumulado com a padronização: cerca de 5.070 h/ano, aproximadamente 2,5 FTE.</p>
+
+<figure>
+  <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico de barras, horas por analista por semana em coleta manual, antes e depois, proporção ilustrativa"><line x1="40" y1="165" x2="290" y2="165" stroke="currentColor" stroke-opacity="0.25"/><rect x="70" y="35" width="70" height="130" rx="4" fill="currentColor" fill-opacity="0.32"/><rect x="190" y="116" width="70" height="49" rx="4" fill="currentColor" fill-opacity="0.85"/><text x="105" y="185" text-anchor="middle" font-size="13" fill="currentColor">Antes</text><text x="225" y="185" text-anchor="middle" font-size="13" fill="currentColor">Depois</text></svg>
+  <figcaption>Dados ilustrativos reconstruídos. Proporções reais, valores absolutos omitidos.</figcaption>
+</figure>
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu não hospedaria o banco de estado do pipeline dentro de uma pasta sincronizada por nuvem: mais de um incidente real de corrupção silenciosa do arquivo de banco — schema corrompido devolvendo zero registros sem lançar erro — mostrou que sincronização de arquivo por nuvem não é um mecanismo de escrita seguro para um processo agendado que roda automatizado duas vezes por dia. A escrita atômica dos CSVs finais, gravando primeiro em arquivo temporário e só depois substituindo o definitivo, e a checagem de contagem de linha antes de publicar são práticas que hoje entrariam desde a primeira versão do pipeline, não depois de um export truncado passar batido por semanas.</p>
+
+</div>
+</body>
+</html>

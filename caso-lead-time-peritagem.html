@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Redução do lead time da peritagem mecânica — Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estatico/estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Redução do lead time da peritagem mecânica</h1>
+<p class="papel">Analista de Gestão de Processos Industriais · 2021-2022</p>
+
+<h3>Problema</h3>
+<p>A peritagem mecânica antecede a proposta: sem laudo, o comercial não monta o orçamento. Levava 5 dias, e o laudo não chegava de forma clara e direta para quem precisava orçar. O efeito não era no prazo de execução da ordem — era no prazo de resposta ao cliente, que é onde se ganha ou se perde o serviço.</p>
+
+<h3>Restrições</h3>
+<p>Não havia sistema integrado no período: o controle de prazo era uma planilha de data de início e término mantida pela própria área, sem automação por trás. O escopo era a peritagem, não a fila de prioridade da oficina — atacar o gargalo de produção como um todo estava fora de alçada da função. A meta declarada era de resposta comercial, o tempo até o laudo, não de throughput de produção, e não havia orçamento para um sistema dedicado de controle de ordem de serviço.</p>
+
+<h3>Método</h3>
+<p>Cronoanálise, Padronização, Melhoria contínua, Mapeamento de processo</p>
+
+<h3>O que eu fiz</h3>
+<p>Passei a medir o ciclo por ordem de serviço, com data de início e data de término em planilha de controle, ataquei as esperas entre a inspeção e a emissão do laudo e desenvolvi a ferramenta do relatório técnico de peritagem, que padronizou a saída e tornou a elaboração viável para todas as ordens, não só para as maiores.</p>
+
+<h3>Resultado</h3>
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>5 dias entre a chegada do equipamento e o laudo entregue, em 2021</td><td>2 dias, em 2022</td><td>-60%</td></tr>
+</table>
+<p>Medição: Planilha de controle com data de início e data de término por ordem de serviço de peritagem. Não havia sistema integrado no período — o controle era manual e mantido pela própria área. Impacto anual: 3 dias a menos no prazo de resposta comercial, sobre cerca de 60 peritagens por mês.</p>
+
+<figure>
+  <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico de barras, dias entre a chegada do equipamento e o laudo, antes e depois, proporção ilustrativa"><line x1="40" y1="165" x2="290" y2="165" stroke="currentColor" stroke-opacity="0.25"/><rect x="70" y="35" width="70" height="130" rx="4" fill="currentColor" fill-opacity="0.32"/><rect x="190" y="113" width="70" height="52" rx="4" fill="currentColor" fill-opacity="0.85"/><text x="105" y="185" text-anchor="middle" font-size="13" fill="currentColor">Antes</text><text x="225" y="185" text-anchor="middle" font-size="13" fill="currentColor">Depois</text></svg>
+  <figcaption>Dados ilustrativos reconstruídos. Proporções reais, valores absolutos omitidos.</figcaption>
+</figure>
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu não dependeria do preenchimento manual da planilha de controle para capturar data de início e término: um formulário simples vinculado à própria ordem de serviço, ainda que sem integração de sistema, teria registrado o evento no momento em que ele acontecia, em vez de depender de alguém lembrar de anotar no fim do dia. Planilha manual tem risco de lacuna que cresce com o volume — instrumentar a medição desde o primeiro dia, em vez de confiar na disciplina de preenchimento, é a diferença entre uma série confiável e uma que precisa ser reconstruída depois.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Agente digital de tratativa de não conformidade e queda da reprovação pela qualidade — Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estatico/estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Agente digital de tratativa de não conformidade e queda da reprovação pela qualidade</h1>
+<p class="papel">Supervisor de Gestão de Processos Industriais · 2023-2026</p>
+
+<h3>Problema</h3>
+<p>A tratativa de não conformidade começava numa reunião de 1 h que produzia análise de causa rasa. Metade das tratativas voltava reprovada pelo sistema de gestão integrada, por qualidade da descrição e do plano de ação — e o analista dependia da leitura do supervisor para chegar à causa, o que enviesava o resultado e travava o ciclo.</p>
+
+<h3>Restrições</h3>
+<p>A ferramenta depende de um provedor de IA generativa externo à empresa, fora do controle da área sobre mudança de modelo, preço ou disponibilidade. A adoção não era só publicar um sistema novo: exigia romper o hábito de sete analistas de dependerem da leitura do supervisor para chegar à causa. O corte de criticidade que separa ocorrência de não conformidade já estava definido por outra área, fora de escopo para alterar.</p>
+
+<h3>Método</h3>
+<p>Ishikawa, 5 Porquês, 5W2H, IA generativa, Padronização e POP, Tratativa de não conformidade</p>
+
+<h3>O que eu fiz</h3>
+<p>Construí, especifiquei e implantei um GPT customizado que recebe a descrição da ocorrência, reescreve a descrição, conduz a análise de causa por Ishikawa ou 5 Porquês e devolve o plano de ação em 5W2H. Sustentei a mudança com o POP do fluxo de tratativa e com o treinamento da equipe. Mirei defeitos que eu mesmo havia medido: descrição despadronizada em mais de 12 redações diferentes e plano de ação preenchido em 13,2% dos registros.</p>
+
+<h3>Resultado</h3>
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>5 de cada 10 tratativas reprovadas pelo aprovador da qualidade, ou seja 50%, no período anterior a 2023</td><td>1 de cada 10, ou seja 10%, ao longo de 2023 e mantido desde então; a reprovação por qualidade da descrição foi eliminada e a por plano de ação caiu</td><td>-80% na taxa de reprovação, queda de 40 pontos percentuais</td></tr>
+</table>
+<p>Medição: Aprovação e reprovação registradas pelo sistema de gestão integrada, que é o aprovador externo à área — não é autodeclaração. Proporção observada sobre as tratativas submetidas [estimado]. Corte de criticidade em vigor: abaixo de 60 pontos é ocorrência, a partir de 60 é não conformidade. NOTA DE CRONOLOGIA (13/08/2026): o trabalho atravessa a mudança de cargo — o usuário era Analista de Gestão de Processos Industriais até 09/2023 e Supervisor a partir daí (`nucleo/perfil.json`). O caso é renderizado no CV sob o cargo de Supervisor, que é onde ele foi concluído e sustentado; se perguntado numa entrevista, a resposta honesta é que começou ainda como analista.</p>
+
+<figure>
+  <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico de barras, taxa de reprovação pela qualidade, antes e depois, proporção ilustrativa"><line x1="40" y1="165" x2="290" y2="165" stroke="currentColor" stroke-opacity="0.25"/><rect x="70" y="35" width="70" height="130" rx="4" fill="currentColor" fill-opacity="0.32"/><rect x="190" y="139" width="70" height="26" rx="4" fill="currentColor" fill-opacity="0.85"/><text x="105" y="185" text-anchor="middle" font-size="13" fill="currentColor">Antes</text><text x="225" y="185" text-anchor="middle" font-size="13" fill="currentColor">Depois</text></svg>
+  <figcaption>Dados ilustrativos reconstruídos. Proporções reais, valores absolutos omitidos.</figcaption>
+</figure>
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu instrumentaria, desde o primeiro mês, uma métrica intermediária de quanto o analista edita a saída do agente antes de submeter — não só o resultado final de aprovação do sistema de gestão integrada. Sem essa métrica, não dá para separar se a queda da reprovação veio da qualidade do texto gerado pelo agente ou de o analista ter aprendido o padrão e passado a escrever assim por conta própria; essa distinção hoje precisa ser reconstruída de forma indireta, e uma métrica de edição instrumentada desde o início teria respondido a isso sem inferência.</p>
+
+</div>
+</body>
+</html>
