@@ -17,29 +17,150 @@
   <p class="contato">Sarzedo, Minas Gerais · <a href="mailto:mmarcelo.eng@gmail.com">mmarcelo.eng@gmail.com</a> · <a href="https://linkedin.com/in/marcelo-moura-mm">LinkedIn</a></p>
 </header>
 
-<p class="lead">Conduzo projetos de melhoria com entrega mensurável em operação industrial de motores elétricos de grande porte, do diagnóstico com dado bruto até o resultado sustentado em campo. Combino PDCA, 5W2H e automação de dados para atacar a causa raiz: implantei um agente digital de IA generativa que levou a reprovação de tratativas de não conformidade pela qualidade de 50% para 10% (-80%), e conduzi a cadeia de padronização e automação dos indicadores semanais da operação, de 8h para 4h como analista e, na etapa seguinte, de 4h para 1,5h como supervisor (-81% acumulado). Power BI e Green Belt em Lean Six Sigma são ferramenta de apoio a essa condução, não o centro dela. Inglês intermediário avançado, em desenvolvimento contínuo, com uso direto em leitura técnica e documentação de projeto.</p>
+<p class="lead">Conduzo projetos de melhoria com entrega mensurável em operação industrial de motores elétricos de grande porte, do diagnóstico com dado bruto até o resultado sustentado em campo. Meu trabalho é achar a causa do problema e mudar o processo que a sustenta, não produzir relatório sobre ele. Implantei um assistente de inteligência artificial na tratativa de não conformidade e a reprovação pela qualidade caiu de 50% para 10%. Conduzi a padronização e a automação dos indicadores semanais da operação em duas etapas, de 8 h para 4 h como analista e de 4 h para 1,5 h como supervisor, uma queda de 81% no acumulado. Power BI e a certificação Green Belt em Lean Six Sigma entram como ferramenta dessa condução, não como o centro dela. Uso inglês na leitura técnica e na documentação de projeto.</p>
 
 <h3>Estudos de caso</h3>
 
 <div class="caso-item">
-  <h2><a href="caso-pipeline-bi.html">Pipeline de dados e ecossistema de BI da operação industrial</a></h2>
-  <p>A definição de cada indicador já estava padronizada entre os analistas, mas a coleta continuava manual: cada um extraía do ERP, baixava as planilhas vivas de três unidades e conferia à mão antes de atualizar o relatório. Eram 4 h por semana, por analista, só para ter o dado na mesa — antes de qualquer análise.</p>
-  <p class="resumo-resultado">4 h/semana por analista em coleta e conferência manual, mais 30 min por atualização do relatório, com 15 analistas na rotina → 1,5 h/semana por analista, mais 20 min de atualização completa; o pipeline roda às 08h e às 18h sem intervenção humana
-    <span class="delta">(-62,5% por analista (acumulado com a padronização: 8 h -&gt; 1,5 h, -81%))</span></p>
+  <h2><a href="caso-migracao-plataforma-dados.html">Migração da fonte de dados do BI em produção, sem perda de indicador</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 07/2026</p>
+  <p>A área de TI substituiria o sistema que alimentava todo o BI da operação por uma plataforma nova. Era preciso trocar a fonte de 35 bases em produção sem que as 17 telas e a rotina semanal de 15 analistas ficassem sem dado, e sem janela para descobrir problema depois do corte.</p>
+  
+  <p class="resumo-resultado">35 bases em produção sobre a fonte antiga, sem paridade verificada com a nova e sem procedimento de retorno → Corte concluído em julho de 2026 com 76 de 76 arquivos de cabeçalho idêntico, cada divergência de volume explicada de antemão e execução ponta a ponta em 13 minutos. Encontrei 4 defeitos na plataforma nova antes da virada e 1 defeito latente na própria produção
+    <span class="delta">(zero perda de indicador na virada)</span></p>
+  
 </div>
 
 <div class="caso-item">
-  <h2><a href="caso-agente-digital-tratativa-nc.html">Agente digital de tratativa de não conformidade e queda da reprovação pela qualidade</a></h2>
-  <p>A tratativa de não conformidade começava numa reunião de 1 h que produzia análise de causa rasa. Metade das tratativas voltava reprovada pelo sistema de gestão integrada, por qualidade da descrição e do plano de ação — e o analista dependia da leitura do supervisor para chegar à causa, o que enviesava o resultado e travava o ciclo.</p>
-  <p class="resumo-resultado">5 de cada 10 tratativas reprovadas pelo aprovador da qualidade, ou seja 50%, no período anterior a 2023 → 1 de cada 10, ou seja 10%, ao longo de 2023 e mantido desde então; a reprovação por qualidade da descrição foi eliminada e a por plano de ação caiu
+  <h2><a href="caso-pcp-2-0-rota-producao.html">Reconstrução da rota de produção a partir do praticado</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2026</p>
+  <p>A programação da produção dependia de um cadastro de precedências que não sustentava uma rede: estava 51% preenchido, 95% dos vínculos apontavam para outro centro de trabalho e 54% dos pares apareciam invertidos em relação à prática da oficina. Programar sobre ele produzia uma sequência que a oficina não seguia, e ninguém sabia disso, porque ninguém tinha auditado o cadastro.</p>
+  
+  <p class="resumo-resultado">Cadastro de precedências 51% preenchido, com 95% dos vínculos apontando para outro centro de trabalho e 54% dos pares invertidos contra a prática observada → Catálogo de 256 tarefas, 180 atividades, 393 peças e 22 seções, e estrutura analítica em três níveis com 608 tarefas e 481 precedências, sem nenhum ciclo, minerada de 440 ordens com média de 33 atividades por ordem
+    <span class="delta">(rede de precedências válida onde não havia nenhuma utilizável)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-sistema-dto-coleta.html">Sistema próprio de coleta do diagnóstico operacional em campo</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2026</p>
+  <p>A coleta do diagnóstico operacional rodava num formulário online de prateleira, depois de uma tentativa em ferramenta de baixo código abandonada no caminho. O formulário não conhecia o escopo de cada unidade e seção, e o dado chegava sem vínculo com o procedimento correspondente, o que inviabilizava medir cobertura.</p>
+  
+  <p class="resumo-resultado">Coleta em formulário online de prateleira, com 0 procedimentos vinculados a escopo de unidade e seção, depois de uma tentativa anterior em ferramenta de baixo código abandonada → Módulo de coleta entregue em agosto de 2026, com 302 testes automatizados, escopo por par de unidade e seção e 204 procedimentos carregados
+    <span class="delta">(substituição completa da ferramenta de coleta)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-orcamentacao-parametrica.html">Modelo paramétrico de estimativa de horas para orçamento de serviços</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2025-2026</p>
+  <p>A estimativa de horas que sustenta o orçamento de serviço em motores saía do julgamento técnico do orçamentista, sem base estatística do que a oficina de fato realizava. Sem referência do histórico, o mesmo serviço era orçado de formas diferentes conforme quem orçava.</p>
+  
+  <p class="resumo-resultado">Estimativa por julgamento técnico, sem referência do realizado. Na origem, 93% das ordens sem classificação não tinham código de equipamento vinculado no ERP → 919 ordens na base, 811 validadas e 73 categorias, sendo 15 delas com base estatística, cobrindo 79,8% das ordens validadas. Categoria com menos de 8 casos passou a devolver &#39;sem base&#39; em vez de prever. O orçamentista consulta o painel antes de iniciar a proposta
+    <span class="delta">(63,7% das ordens dentro da faixa prevista, contra 61,7% da versão anterior)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-paineis-gestao-cliente-externo.html">Painéis de gestão para clientes externos: comercial e controladoria</a></h2>
+  
+  <p class="meta-caso">Consultor em gestão e dados · 2025-2026</p>
+  <p>Num cliente industrial, o acompanhamento do departamento comercial dependia de uma pessoa exportando planilhas do CRM, consolidando e tratando à mão, 2 h por dia. O número chegava tarde e ninguém confiava o bastante para decidir com ele. Num segundo cliente, de outro segmento, o mesmo padrão do lado financeiro: não havia leitura consolidada de resultado e caixa.</p>
+  
+  <p class="resumo-resultado">2 h por dia de uma pessoa em exportação, consolidação e tratamento manual de planilhas do CRM → 0 h/dia de consolidação manual, etapa eliminada; painel automatizado integrado ao CRM, e o cliente passou a operar sozinho depois da transferência
+    <span class="delta">(-100% da consolidação manual, 2 h/dia eliminadas)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-capacitacao-mentoria-externa.html">Capacitação e mentoria técnica em análise de dados</a></h2>
+  
+  <p class="meta-caso">Consultor em gestão e dados · 2025-2026</p>
+  <p>Analistas de dados em empresas diferentes travam no mesmo ponto: sabem a ferramenta, mas não conseguem sair de uma base suja até um painel que o gestor use de fato. Num cliente de logística, o relatório de produtividade que a operação precisava simplesmente não existia. Não era um relatório ruim, era ausência de entrega.</p>
+  
+  <p class="resumo-resultado">0 relatórios de produtividade em uso no cliente de logística, indicador inexistente; analistas sem método para ir da base bruta até o painel em uso → 1 relatório de produtividade em uso, com o time de operação do cliente acompanhando os indicadores diariamente, de forma automatizada
+    <span class="delta">(de 0 para 1 relatório de produtividade em uso, com acompanhamento diário automatizado onde antes não havia entrega nenhuma)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-pipeline-bi.html">Automação da coleta de dados dos indicadores da operação</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2024-2026</p>
+  <p>A definição de cada indicador já estava padronizada entre os analistas, mas a coleta continuava manual: cada um extraía o dado do ERP, baixava as planilhas que as três unidades editavam à mão e conferia tudo antes de atualizar o relatório. Eram 4 h por semana, por analista, só para ter o dado na mesa, antes de qualquer análise.</p>
+  
+  <p class="resumo-resultado">4 h/semana por analista em coleta e conferência manual, mais 30 min por atualização do relatório, com 15 analistas na rotina → 1,5 h/semana por analista, mais 20 min de atualização completa; a rotina roda às 08h e às 18h sem ninguém acionar
+    <span class="delta">(-62,5% por analista, -81% acumulado com a padronização dos indicadores)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-agente-digital-tratativa-nc.html">Assistente de inteligência artificial na tratativa de não conformidade</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2023-2026</p>
+  <p>A tratativa de não conformidade começava numa reunião de 1 h que produzia análise de causa rasa. Metade das tratativas voltava reprovada pelo sistema de gestão integrada, por qualidade da descrição e do plano de ação. E o analista dependia da leitura do supervisor para chegar à causa, o que enviesava o resultado e travava o ciclo.</p>
+  
+  <p class="resumo-resultado">5 de cada 10 tratativas reprovadas pelo aprovador da qualidade, 50% do total, no período anterior a 2023 → 1 de cada 10, 10% do total, ao longo de 2023 e mantido desde então; a reprovação por qualidade da descrição deixou de acontecer e a por plano de ação caiu
     <span class="delta">(-80% na taxa de reprovação, queda de 40 pontos percentuais)</span></p>
+  
 </div>
 
 <div class="caso-item">
-  <h2><a href="caso-lead-time-peritagem.html">Redução do lead time da peritagem mecânica</a></h2>
-  <p>A peritagem mecânica antecede a proposta: sem laudo, o comercial não monta o orçamento. Levava 5 dias, e o laudo não chegava de forma clara e direta para quem precisava orçar. O efeito não era no prazo de execução da ordem — era no prazo de resposta ao cliente, que é onde se ganha ou se perde o serviço.</p>
+  <h2><a href="caso-programa-capacitacao-interna.html">Programa interno de capacitação em dados, Power BI e IA generativa</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2023-2026</p>
+  <p>A área depende de analista que saiba tratar base, construir indicador e apresentar resultado, e esse perfil não vem pronto do mercado. Sem formação interna, cada um aprendia sozinho e o método não se repetia de uma pessoa para outra, o que aparecia depois como divergência de número entre analistas.</p>
+  
+  <p class="resumo-resultado">0 pessoas formadas em programa interno estruturado; método aprendido individualmente por cada analista, sem repetibilidade entre pessoas → 50 pessoas formadas em 3 turmas, 6 temas, material próprio, em ciclo anual. A continuidade não depende de mim: um analista formado construiu por conta própria um assistente de inteligência artificial que o ajuda a escrever procedimentos operacionais
+    <span class="delta">(50 pessoas em 3 turmas)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-green-belt-referencia-metodo.html">Referência interna de método no programa Green Belt Lean Six Sigma</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 09/2024-08/2025</p>
+  <p>A empresa contratou um programa Green Belt com consultoria externa para quatro grupos. Método de consultoria não aterrissa sozinho: os grupos precisavam traduzir o passo a passo do método para o dado e o processo reais da operação, e não havia dentro de casa quem fizesse essa ponte.</p>
+  
+  <p class="resumo-resultado">4 grupos iniciando o programa com método externo e sem referência interna de aplicação ao contexto de dado e processo da empresa → Os 4 grupos concluíram e defenderam os projetos em banca, com o portfólio de ganho aprovado na banca de encerramento de agosto de 2025
+    <span class="delta">(4 de 4 grupos concluídos)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-fluxo-tratativa-anomalias-montagem.html">Estruturação do fluxo de tratativa de anomalias na montagem final</a></h2>
+  
+  <p class="meta-caso">Supervisor de Gestão de Processos Industriais · 2023-2024</p>
+  <p>A montagem final rodava com a maior parte das ordens impactada por alguma ocorrência de processo e com reprovação relevante no teste final. As anomalias levantadas pelo planejamento não tinham fluxo de tratativa: eram registradas e morriam ali, cada uma descrita de um jeito, sem uma classificação comum de causa entre as áreas.</p>
+  
+  <p class="resumo-resultado sem-numero">O fluxo de tratativa foi implantado e as anomalias levantadas pelo planejamento passaram a ter destino, com uma classificação de causa comum acordada entre produção, planejamento e engenharia, no lugar de cada área descrever a mesma ocorrência de um jeito. O ganho de produtividade da montagem no período seguinte foi apresentado em convenção interna, mas não sobreviveu como registro consultável, e por isso não é citado aqui. A linha de base do período anterior, essa sim, está fechada e é rastreável semana a semana.</p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-padronizacao-indicadores-reuniao-semanal.html">Padronização dos indicadores da reunião semanal de operação em Power BI</a></h2>
+  
+  <p class="meta-caso">Analista de Gestão de Processos Industriais · 2023</p>
+  <p>Cada analista montava à mão os indicadores da reunião semanal, em planilha própria. Além das 8 h por semana que isso consumia de cada um, o mesmo indicador saía com resultado diferente de um analista para outro, e a reunião gastava o começo discutindo qual número estava certo, antes de discutir o processo.</p>
+  
+  <p class="resumo-resultado">8 h/semana por analista de preparação manual, com 15 analistas, e divergência de resultado entre analistas para o mesmo indicador → 4 h/semana por analista, mais 30 min por atualização do relatório, com definição única de cada indicador
+    <span class="delta">(-50%)</span></p>
+  
+</div>
+
+<div class="caso-item">
+  <h2><a href="caso-lead-time-peritagem.html">Redução do prazo da peritagem mecânica</a></h2>
+  
+  <p class="meta-caso">Analista de Gestão de Processos Industriais · 2021-2022</p>
+  <p>A peritagem mecânica antecede a proposta: sem laudo, o comercial não monta o orçamento. Levava 5 dias, e o laudo não chegava de forma clara e direta para quem precisava orçar. O efeito não era no prazo de execução da ordem, era no prazo de resposta ao cliente, que é onde se ganha ou se perde o serviço.</p>
+  
   <p class="resumo-resultado">5 dias entre a chegada do equipamento e o laudo entregue, em 2021 → 2 dias, em 2022
     <span class="delta">(-60%)</span></p>
+  
 </div>
 
 

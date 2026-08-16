@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Reconstrução da rota de produção a partir do praticado · Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Reconstrução da rota de produção a partir do praticado</h1>
+<p class="papel">Supervisor de Gestão de Processos Industriais · 2026</p>
+
+
+<h3>Problema</h3>
+<p>A programação da produção dependia de um cadastro de precedências que não sustentava uma rede: estava 51% preenchido, 95% dos vínculos apontavam para outro centro de trabalho e 54% dos pares apareciam invertidos em relação à prática da oficina. Programar sobre ele produzia uma sequência que a oficina não seguia, e ninguém sabia disso, porque ninguém tinha auditado o cadastro.</p>
+
+<h3>O que eu fiz</h3>
+<p>Conduzi o projeto junto com a área de planejamento. Levantei as rotas reais de 440 ordens de serviço a partir do histórico, montei o catálogo de tarefas e a estrutura analítica do projeto em três níveis, e construí a rede de precedências a partir do que a oficina de fato praticava, porque o cadastro existente não sustentava uma rede. Validei a classificação de família em três níveis com o planejamento.</p>
+
+<h3>Resultado</h3>
+
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>Cadastro de precedências 51% preenchido, com 95% dos vínculos apontando para outro centro de trabalho e 54% dos pares invertidos contra a prática observada</td><td>Catálogo de 256 tarefas, 180 atividades, 393 peças e 22 seções, e estrutura analítica em três níveis com 608 tarefas e 481 precedências, sem nenhum ciclo, minerada de 440 ordens com média de 33 atividades por ordem</td><td>rede de precedências válida onde não havia nenhuma utilizável</td></tr>
+</table>
+<p>Como foi medido: Auditoria do cadastro existente registro a registro contra a sequência efetivamente praticada nas 440 ordens levantadas, seguida de verificação de que a rede resultante não continha nenhum ciclo.</p>
+
+
+
+<h3>Método</h3>
+<ul class="metodo">
+  <li>Análise de rotas reais</li><li>Estrutura analítica de projeto</li><li>Gestão de projetos</li><li>Modelagem de dados</li><li>Auditoria de cadastro</li>
+</ul>
+
+<h3>Restrições do contexto</h3>
+<p>O cadastro auditado era mantido por outra área, o que fez do resultado do trabalho uma conclusão desconfortável para quem o mantinha, e por isso a condução foi conjunta com o planejamento desde o início, não apresentada pronta no fim. A rede foi construída sobre 440 ordens já executadas, ou seja, reproduz o que a oficina praticava, incluindo o que a oficina praticava errado. E o trabalho parou na rede válida: usar essa rede para programar de fato depende de mudança no sistema de produção, que não estava no escopo.</p>
+
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu levaria a auditoria do cadastro para a área responsável antes de terminá-la, não depois. Cheguei com o diagnóstico fechado e, mesmo com o trabalho conduzido em conjunto, isso cria uma posição defensiva desnecessária. Mostrar os primeiros 20% da evidência e pedir a leitura deles teria produzido o mesmo diagnóstico com metade do atrito. O conteúdo técnico não mudaria; a velocidade de adoção, sim.</p>
+
+</div>
+</body>
+</html>

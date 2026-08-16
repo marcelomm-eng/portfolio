@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Sistema próprio de coleta do diagnóstico operacional em campo · Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Sistema próprio de coleta do diagnóstico operacional em campo</h1>
+<p class="papel">Supervisor de Gestão de Processos Industriais · 2026</p>
+
+
+<h3>Problema</h3>
+<p>A coleta do diagnóstico operacional rodava num formulário online de prateleira, depois de uma tentativa em ferramenta de baixo código abandonada no caminho. O formulário não conhecia o escopo de cada unidade e seção, e o dado chegava sem vínculo com o procedimento correspondente, o que inviabilizava medir cobertura.</p>
+
+<h3>O que eu fiz</h3>
+<p>Especifiquei e desenvolvi uma aplicação web própria, com escopo por par de unidade e seção e os procedimentos já carregados. Documentei a decisão de projeto que sustenta a arquitetura: o servidor recusa o mínimo possível, porque um erro de validação tira o pacote da fila do celular e o checklist morre no aparelho. Dado sujo e sinalizado é melhor que dado perdido em silêncio.</p>
+
+<h3>Resultado</h3>
+
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>Coleta em formulário online de prateleira, com 0 procedimentos vinculados a escopo de unidade e seção, depois de uma tentativa anterior em ferramenta de baixo código abandonada</td><td>Módulo de coleta entregue em agosto de 2026, com 302 testes automatizados, escopo por par de unidade e seção e 204 procedimentos carregados</td><td>substituição completa da ferramenta de coleta</td></tr>
+</table>
+<p>Como foi medido: Suíte de 302 testes automatizados verde e piloto em operação, com a entrega do módulo datada em agosto de 2026.</p>
+
+
+
+<h3>Método</h3>
+<ul class="metodo">
+  <li>Desenvolvimento de software</li><li>Testes automatizados</li><li>Especificação de requisitos</li><li>Arquitetura</li>
+</ul>
+
+<h3>Restrições do contexto</h3>
+<p>O sistema é usado em campo, no celular, em área industrial com conexão instável, e essa restrição definiu a arquitetura inteira mais do que qualquer requisito funcional. Desenvolvi sozinho, sem time de software, o que limita o que é razoável manter no ar. E havia um passivo de credibilidade: era a terceira tentativa de resolver a mesma coleta, depois de um formulário de prateleira e de uma tentativa em ferramenta de baixo código abandonada, então a entrega precisava aparecer rápido para a equipe voltar a acreditar na solução.</p>
+
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu colocaria o piloto em campo com menos escopo e mais cedo. A decisão de arquitetura mais importante do projeto, a de o servidor recusar o mínimo possível para não perder o pacote do celular, veio de raciocinar sobre o campo, não de ver o campo. Ela se provou certa, mas foi uma aposta. Uma semana de piloto reduzido antes de escrever a validação teria transformado essa aposta em evidência, ao custo de adiar o resto.</p>
+
+</div>
+</body>
+</html>

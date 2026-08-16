@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Migração da fonte de dados do BI em produção, sem perda de indicador · Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Migração da fonte de dados do BI em produção, sem perda de indicador</h1>
+<p class="papel">Supervisor de Gestão de Processos Industriais · 07/2026</p>
+
+
+<h3>Problema</h3>
+<p>A área de TI substituiria o sistema que alimentava todo o BI da operação por uma plataforma nova. Era preciso trocar a fonte de 35 bases em produção sem que as 17 telas e a rotina semanal de 15 analistas ficassem sem dado, e sem janela para descobrir problema depois do corte.</p>
+
+<h3>O que eu fiz</h3>
+<p>Conduzi a validação base a base e o corte: reconciliação registro a registro, uma fase de operação em paralelo entre a fonte antiga e a nova, plano de retorno documentado e a versão antiga arquivada intacta antes de desligar.</p>
+
+<h3>Resultado</h3>
+
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>35 bases em produção sobre a fonte antiga, sem paridade verificada com a nova e sem procedimento de retorno</td><td>Corte concluído em julho de 2026 com 76 de 76 arquivos de cabeçalho idêntico, cada divergência de volume explicada de antemão e execução ponta a ponta em 13 minutos. Encontrei 4 defeitos na plataforma nova antes da virada e 1 defeito latente na própria produção</td><td>zero perda de indicador na virada</td></tr>
+</table>
+<p>Como foi medido: Comparação automatizada arquivo a arquivo entre a saída da fonte antiga e da nova durante a operação em paralelo, com cada divergência classificada e registrada antes do corte.</p>
+
+
+
+<h3>Método</h3>
+<ul class="metodo">
+  <li>Gestão de risco</li><li>Validação de dados</li><li>Gestão de projetos</li><li>Reconciliação de registros</li>
+</ul>
+
+<h3>Restrições do contexto</h3>
+<p>A decisão de trocar a plataforma não era minha e o prazo não era negociável: recebi a data do time de tecnologia e trabalhei dentro dela. Não havia ambiente de homologação equivalente ao de produção, então a validação teve de ser feita comparando saída contra saída, com as duas fontes rodando em paralelo. E não havia janela de indisponibilidade aceitável: a rotina semanal de 15 analistas dependia dessas telas, então o corte precisava caber num intervalo sem reunião.</p>
+
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu exigiria a comparação automatizada de saída desde o primeiro dia do projeto, e não a partir da metade dele. Os quatro defeitos que apareceram na plataforma nova só foram encontrados quando a comparação arquivo a arquivo começou a rodar. Até ali a validação era por amostragem visual, que não teria pegado nenhum dos quatro. Comparar cedo custa pouco, e é o que separa uma virada tranquila de uma virada descoberta pelo usuário.</p>
+
+</div>
+</body>
+</html>

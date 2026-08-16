@@ -101,6 +101,23 @@ h1{
 
 p{margin-bottom:16px}
 
+/* Justificado nos paragrafos de leitura corrida, a pedido do usuario.
+   Escopo deliberado: `.lead`, o texto do cartao do indice e os paragrafos das
+   secoes do caso. Fica de fora o que nao e prosa -- contato, meta do cartao e
+   o bloco antes/depois --, onde justificar so abriria buraco entre palavras.
+   `hyphens` depende de `lang` no <html>, que o template ja emite como pt-BR;
+   sem hifenizacao, justificar numa coluna de 70ch produz rio de espaco em
+   frase com termo longo ("nao conformidade", "responsabilidade"). */
+.lead,
+.caso-item > p:not(.resumo-resultado):not(.meta-caso),
+.env > p:not(.contato):not(.lead){
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+  -webkit-hyphens:auto;
+}
+section > p{text-align:justify; hyphens:auto; -webkit-hyphens:auto}
+
 a{color:var(--neon); text-decoration:none}
 a:hover{text-decoration:underline; text-underline-offset:3px}
 
@@ -136,10 +153,19 @@ h3::after{
 }
 .caso-item:hover{border-color:var(--borda-neon); box-shadow:var(--sombra-neon)}
 
-.caso-item h2{margin-bottom:12px}
+.caso-item h2{margin-bottom:8px}
 .caso-item h2 a{color:var(--branco); text-decoration:none}
 .caso-item:hover h2 a{color:var(--neon)}
 .caso-item p{color:var(--cinza-300); margin-bottom:16px}
+
+/* Papel e periodo no cartao. Com 13 casos no indice, sem esta linha o leitor
+   nao consegue situar o caso no tempo nem no cargo sem abrir a pagina. */
+.meta-caso{
+  color:var(--cinza-400);
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:14px;
+}
 
 h2{
   font-size:22px;
@@ -167,6 +193,13 @@ h2{
   letter-spacing:-0.01em;
   color:var(--neon);
   white-space:nowrap;
+}
+
+/* Caso sem numero citavel: mesmo bloco, sem a barra neon. O acento marca
+   resultado medido; usa-lo aqui prometeria um numero que nao vem. */
+.resumo-resultado.sem-numero{
+  border-left-color:var(--cinza-500);
+  color:var(--cinza-400);
 }
 
 /* ------------------------------------------------------------------
@@ -216,25 +249,32 @@ h2{
 .resultado td:last-child{color:var(--neon); font-weight:600; font-variant-numeric:tabular-nums}
 
 /* ------------------------------------------------------------------
-   GRAFICO — os SVG do nucleo pintam tudo em currentColor, entao a cor
-   vem daqui. O fill-opacity de cada barra ja separa antes de depois;
-   os rotulos saem do neon para nao gritar.
+   METODO — etiqueta, nao frase. O campo e uma lista de nomes de metodo;
+   renderizado com join(', ') dentro de um <p> virava um paragrafo de
+   siglas soltas no meio do texto corrido.
    ------------------------------------------------------------------ */
-figure{
-  margin:32px 0;
-  padding:24px;
-  background:var(--navy-mid);
+ul.metodo{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 16px;
+  padding:0;
+}
+ul.metodo li{
+  background:var(--superficie);
   border:1px solid var(--borda);
-  border-radius:var(--raio-lg);
+  border-radius:var(--raio-sm);
+  padding:5px 12px;
+  font-size:13px;
+  line-height:1.4;
+  color:var(--cinza-100);
 }
-figure svg{width:100%; height:auto; display:block; color:var(--neon)}
-figure svg text{fill:var(--cinza-300); font-family:var(--fonte)}
-figcaption{
-  font-size:12px;
-  color:var(--cinza-400);
-  margin-top:16px;
-  line-height:1.5;
-}
+
+/* O bloco de grafico (figure/figcaption) foi removido em 16/08/2026 junto
+   com os SVG de `casos_extra.json`: eram proporcoes ilustrativas e obrigavam
+   uma legenda declarando que o valor absoluto era omitido. O CSS saiu junto
+   para nao deixar regra orfa; se voltar grafico, ele volta com dado real. */
 
 /* ------------------------------------------------------------------
    RESPONSIVO
@@ -242,7 +282,12 @@ figcaption{
 @media (max-width:768px){
   .env{padding:48px 24px 64px}
   .caso-item{padding:24px}
-  figure{padding:16px}
+  /* Coluna estreita nao comporta justificado: a entrelinha abre buraco a cada
+     duas linhas. Volta para alinhado a esquerda abaixo de 768px. */
+  .lead,
+  .caso-item > p,
+  .env > p,
+  section > p{text-align:left}
 }
 
 /* ------------------------------------------------------------------
@@ -261,6 +306,7 @@ figcaption{
   .env{padding:0; max-width:none}
   header.topo::before{display:none}
   .voltar{display:none}
-  .caso-item,figure{box-shadow:none; break-inside:avoid}
+  .caso-item{box-shadow:none; break-inside:avoid}
+  ul.metodo{break-inside:avoid}
   h1,h2,h3{break-after:avoid}
 }

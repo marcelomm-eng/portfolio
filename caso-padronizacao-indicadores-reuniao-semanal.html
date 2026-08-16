@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Padronização dos indicadores da reunião semanal de operação em Power BI · Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Padronização dos indicadores da reunião semanal de operação em Power BI</h1>
+<p class="papel">Analista de Gestão de Processos Industriais · 2023</p>
+
+
+<h3>Problema</h3>
+<p>Cada analista montava à mão os indicadores da reunião semanal, em planilha própria. Além das 8 h por semana que isso consumia de cada um, o mesmo indicador saía com resultado diferente de um analista para outro, e a reunião gastava o começo discutindo qual número estava certo, antes de discutir o processo.</p>
+
+<h3>O que eu fiz</h3>
+<p>Padronizei a definição de cada indicador com as áreas e reconstruí a apuração em um relatório único de Power BI, com regra de cálculo comum a todos os analistas. O ganho de consistência foi tão relevante quanto o de tempo: passou a existir um número só.</p>
+
+<h3>Resultado</h3>
+
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>8 h/semana por analista de preparação manual, com 15 analistas, e divergência de resultado entre analistas para o mesmo indicador</td><td>4 h/semana por analista, mais 30 min por atualização do relatório, com definição única de cada indicador</td><td>-50%</td></tr>
+</table>
+<p>Como foi medido: Comparação de agenda: a preparação bloqueava a segunda-feira inteira. Tempo estimado a partir da experiência direta na função de analista no período, sem cronometragem. Impacto anual: 60 h/semana no time, cerca de 3.120 h/ano, o equivalente a uma pessoa e meia em tempo integral.</p>
+
+
+
+<h3>Método</h3>
+<ul class="metodo">
+  <li>Padronização de indicador</li><li>Power BI</li><li>Definição única de KPI</li><li>Alinhamento entre áreas</li>
+</ul>
+
+<h3>Restrições do contexto</h3>
+<p>O trabalho era de padronização, não de sistema: não havia orçamento nem autonomia para trocar a origem do dado, então a coleta continuou manual depois desta etapa e só foi automatizada anos mais tarde. A definição de cada indicador precisava ser aceita por três áreas com interesses diferentes, e foi o acordo entre elas, não a construção do relatório, que virou o caminho crítico. E eu era analista, sem alçada formal sobre os colegas cuja planilha própria seria substituída.</p>
+
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu escreveria a definição de cada indicador num documento versionado antes de construir o relatório, não durante. A regra de cálculo acabou nascendo dentro do próprio relatório, o que resolveu a divergência mas deixou a definição amarrada à ferramenta: quem quisesse conferir a regra precisava abrir o Power BI. Um dicionário de indicadores separado teria sobrevivido à troca de ferramenta que veio depois, em vez de precisar ser reconstruído junto com ela.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Modelo paramétrico de estimativa de horas para orçamento de serviços · Marcelo Moura Moreira</title>
+<meta name="description" content="Engenheiro de Melhoria Contínua | Especialista em Excelência Operacional">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="env">
+
+<a class="voltar" href="index.html">← todos os casos</a>
+<h1>Modelo paramétrico de estimativa de horas para orçamento de serviços</h1>
+<p class="papel">Supervisor de Gestão de Processos Industriais · 2025-2026</p>
+
+
+<h3>Problema</h3>
+<p>A estimativa de horas que sustenta o orçamento de serviço em motores saía do julgamento técnico do orçamentista, sem base estatística do que a oficina de fato realizava. Sem referência do histórico, o mesmo serviço era orçado de formas diferentes conforme quem orçava.</p>
+
+<h3>O que eu fiz</h3>
+<p>Construí um modelo de três camadas, com porta de qualidade na entrada, tratamento de valores fora do padrão e tempos-padrão versionados, sobre uma classificação de equipamento por serviço e por faixa de potência, ancorada na norma interna. Medi a precisão do próprio modelo contra o histórico e desliguei a previsão onde ela não era confiável.</p>
+
+<h3>Resultado</h3>
+
+<table class="resultado">
+  <tr><th>Antes</th><th>Depois</th><th>Variação</th></tr>
+  <tr><td>Estimativa por julgamento técnico, sem referência do realizado. Na origem, 93% das ordens sem classificação não tinham código de equipamento vinculado no ERP</td><td>919 ordens na base, 811 validadas e 73 categorias, sendo 15 delas com base estatística, cobrindo 79,8% das ordens validadas. Categoria com menos de 8 casos passou a devolver &#39;sem base&#39; em vez de prever. O orçamentista consulta o painel antes de iniciar a proposta</td><td>63,7% das ordens dentro da faixa prevista, contra 61,7% da versão anterior</td></tr>
+</table>
+<p>Como foi medido: Comparação contra o histórico das 811 ordens validadas: percentual de ordens cujo tempo realizado cai dentro da faixa prevista pela sua categoria, entre o percentil 25 e o percentil 90. A referência esperada para modelos desta natureza é de cerca de 65%.</p>
+
+
+
+<h3>Método</h3>
+<ul class="metodo">
+  <li>Modelagem estatística</li><li>Validação contra histórico</li><li>Tratamento de valores fora do padrão</li><li>Cronoanálise</li><li>Classificação de serviços</li>
+</ul>
+
+<h3>Restrições do contexto</h3>
+<p>O histórico de origem era ruim: 93% das ordens sem classificação chegavam sem código de equipamento vinculado, então boa parte do esforço foi reconstruir a classificação antes de modelar qualquer coisa. O modelo tinha de caber no fluxo comercial existente, sem exigir que o orçamentista trocasse de ferramenta. E a base tem o tamanho que tem: com 811 ordens válidas distribuídas em 73 categorias, a maior parte das categorias nunca teria amostra suficiente para sustentar uma previsão.</p>
+
+
+
+<h3>O que eu faria diferente</h3>
+<p>Hoje eu começaria pela porta de qualidade do cadastro, não pelo modelo. Passei tempo demais tentando extrair sinal de uma base cuja classificação estava quebrada na origem, quando o ganho maior estava em impedir a entrada de ordem sem código de equipamento. O modelo é o que aparece, mas o que sustenta o número é o cadastro, e essa ordem eu inverteria.</p>
+
+</div>
+</body>
+</html>
